@@ -1,33 +1,28 @@
 def int_reverse(num):
+    reversed_num = 0
 
-    reversed_int = str(num)[::-1]
-    return reversed_int
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num = num // 10
+
+    return reversed_num
 
 
-def create_palindromic_list(start, stop) :
-
+def create_palindromic_list(start, stop):
     palindromic_numbers = []
-    reverse_result = False
 
-    if start > stop:
-        temp = stop
-        stop = start
-        start = temp
-        reverse_result = True
-    
-    while start <= stop:
-        normal_num = start
-        reversed_int = int(int_reverse(normal_num))
-        if normal_num == reversed_int:
-            palindromic_numbers.append(reversed_int)
-        start += 1
+    if start <= stop:
+        step = 1
+    else:
+        step = -1
 
-    
-    if reverse_result:
-      palindromic_numbers.reverse()
-      
+    for num in range(start, stop + step, step):
+        if num == int_reverse(num):
+            palindromic_numbers.append(num)
 
     return palindromic_numbers
+
 
 
 print(create_palindromic_list(20, 40)) #should print   [22, 33] 

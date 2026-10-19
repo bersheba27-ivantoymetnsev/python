@@ -1,17 +1,24 @@
 import random
 def exists(numbers, num):
+    i = 0
+    found = False
 
-    for i in range(len(numbers)):
+    while i < len(numbers) and not found:
         if numbers[i] == num:
-            return True
-    return False
+            found = True
+        i += 1
+
+    return found
+
 
 def distinct_random_numbers(min, max, size):
+    numbers = []
 
-    numbers =[]
+    if size > max - min + 1 or size < 0:
+        return numbers
 
     while len(numbers) < size:
-        num = random.randint(min,max)
+        num = random.randint(min, max)
 
         if not exists(numbers, num):
             numbers.append(num)
