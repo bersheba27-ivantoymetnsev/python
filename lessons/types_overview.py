@@ -1,9 +1,13 @@
-a = 10 #integer
-b = 10.7 #float
-c = "Hello" #string array
-d = True #bool
+a:int = 10 #integer
+b:float = 10.7 #float
+c: str = "Hello" # type: ignore #string array
+d:bool = True #bool
 c = False #bool
-e = [1,2,3] #array/list
+e: list[int] = [1,2,3] # type: ignore #array/list
+
+e.append(10 // 2) # type: ignore
+print(e) # type: ignore
+
 #print(type(d))
 #print(type(e))
 #print(10 % 3)
@@ -42,10 +46,14 @@ numbers = [1, 2, 10, 7, 8]
 #step - step sequence
 #built in sequences: rang, list, string
 str = "Hello"
-print(str[1:3]) #el
-print(str[1:3:-1]) #No value
-print(str[-1]) #o
-print(str[:]) # copy of str
-print(str[::-1]) #reverse string
+#print(str[1:3]) #el
+#print(str[1:3:-1]) #No value
+#print(str[-1]) #o
+#print(str[:]) # copy of str
+#print(str[::-1]) #reverse string
 
-print(str[2:0:-1]) #le
+#print(str[2:0:-1]) #le
+
+def add(op1:int, op2:int) -> int:
+    result:int = op1 + op2
+    return result
